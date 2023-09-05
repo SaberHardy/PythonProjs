@@ -49,6 +49,24 @@ users = {'Hans': 'active', 'Éléonore': 'inactive', '景太郎': 'active'}
 #         case _:
 #             return "Something's wrong with the internet"
 
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+def where_is(point):
+    match point:
+        case Point(x=0, y=0):
+            print("Origin")
+        case Point(x=0, y=y):
+            print(f"Y={y}")
+        case Point(x=x, y=0):
+            print(f"X={x}")
+        case Point():
+            print("Somewhere else")
+        case _:
+            print("Not a point")
+
 match point:
     case (0, 0):
         print("Origin")
