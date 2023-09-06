@@ -1,19 +1,36 @@
-from sqlalchemy import create_engine, text
+# from sqlalchemy import create_engine, text
+#
+# # Create an engine object
+# engine = create_engine('mysql+pymysql://saber:Flex2020Flex@localhost:3306/BIGDATABASE')
+#
+# # Create a text clause object
+# query = text('SELECT * FROM Employee')
+#
+# # Execute the query
+# connection = engine.connect()
+# cursor = connection.execute(query)
+# results = cursor.fetchall()
+#
+# # Print the results
+# for row in results:
+#     print(row)
+#
+# # Close the connection
+# connection.close()
 
-# Create an engine object
-engine = create_engine('mysql+pymysql://saber:Flex2020Flex@localhost:3306/BIGDATABASE')
+import sqlalchemy
+import pandas as pd
+from sqlalchemy import text
 
-# Create a text clause object
-query = text('SELECT * FROM Employee')
+# Create a SQLAlchemy engine
+engine = sqlalchemy.create_engine('mysql+mysqlconnector://root:Flex2020Flex@127.0.0.1:3306/BIGDATABASE')
 
-# Execute the query
-connection = engine.connect()
-cursor = connection.execute(query)
-results = cursor.fetchall()
+# Wrap the SQL query in a sqlalchemy.text() object
+sql_query = text('SELECT * FROM Employee')
 
-# Print the results
-for row in results:
-    print(row)
+# Read the data into a Pandas DataFrame
+df = pd.read_sql(sql_query, engine)
 
-# Close the connection
-connection.close()
+# Print the DataFrame to the console
+print(df.head())
+
