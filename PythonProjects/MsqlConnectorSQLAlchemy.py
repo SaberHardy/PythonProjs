@@ -3,7 +3,9 @@ import pandas as pd
 from sqlalchemy import text
 
 # Create a SQLAlchemy engine
-engine = sqlalchemy.create_engine('mysql+mysqlconnector://root:Flex2020Flex@127.0.0.1:3306/BIGDATABASE')
+password = "type your password here"
+database_name = "BIGDATABASE"
+engine = sqlalchemy.create_engine(f'mysql+mysqlconnector://root:{password}@127.0.0.1:3306/{database_name}')
 
 # Wrap the SQL query in a sqlalchemy.text() object
 sql_query = text('SELECT * FROM Employee')
