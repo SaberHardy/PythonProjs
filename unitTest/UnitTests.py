@@ -1,5 +1,6 @@
 import unittest
 
+
 # class TestSum(unittest.TestCase):
 #
 #     def test_positive_numbers(self):
@@ -29,6 +30,14 @@ import unittest
 #
 #     def test_multi_character_string(self):
 #         self.assertEqual(reverse_string("hello"), "olleh")
+
+def palindrome(mystr):
+    return mystr == mystr[::-1]
+
+
+class TestPalindrome(unittest.TestCase):
+    def test_palindrome(self):
+        self.assertEquals(palindrome("gkjg"), True)
 
 
 if __name__ == '__main__':
