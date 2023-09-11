@@ -37,7 +37,7 @@ def palindrome(mystr):
 
 class TestPalindrome(unittest.TestCase):
     def test_palindrome(self):
-        self.assertEquals(palindrome("gkjg"), True)
+        self.assertEquals(palindrome("12321"), True)
 
 
 if __name__ == '__main__':
